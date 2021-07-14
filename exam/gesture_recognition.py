@@ -1,11 +1,12 @@
 import numpy as np 
-from loading_models import Singleton_model
+from exam.loading_models import Singleton_model
 import cv2
 from tensorflow.keras.applications import mobilenet
 
 def gesture_recognition(chunk_path):
-    models = Singleton_model
-    model, _ = models.getInstance
+    # models = Singleton_model()
+    # print(models.getInstance.Singleton_model.__model, models.getInstance.Singleton_model.__detector)
+    model, _ = Singleton_model.getInstance()
     predicted_classes = [] 
 
     vs = cv2.VideoCapture(str(chunk_path))
@@ -19,13 +20,14 @@ def gesture_recognition(chunk_path):
 
         #When the video ends 
         if not grabbed:
-            if predicted_classes.size != 0:
+            if len(predicted_classes):
                 gesture = max(set(predicted_classes), key = predicted_classes.count)
-                return(gesture)
+                return gesture
             return(-1)
 
         # check to see if we should process this frame
         if read % 10 == 0:
+            print(read)
             #detection any hand in the frame
             hand = preprocessing(frame)
             if hand != 0:
@@ -36,8 +38,8 @@ def gesture_recognition(chunk_path):
 
 
 def preprocessing(frame):
-    models = Singleton_model
-    _, detection = models.getInstance
+    # models = Singleton_model()
+    _, detection = Singleton_model.getInstance()
     img, x_min, x_max, y_min, y_max = detection.cropHand(frame)
     topLeft = (x_min - 35, y_min - 35)
     bottomRight = (x_max + 35,y_max + 35)

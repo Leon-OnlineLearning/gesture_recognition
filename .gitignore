@@ -1,7 +1,4 @@
-npy_dataset/
 EDA/__pycache__
-testing/__pycache__
-testing/real_data
-testing/dataset
-testing/real_datav2
-testing
+exam/__pycache__
+real_time/__pycache__
+exam/hh.py
