@@ -15,5 +15,5 @@ class Singleton_model:
       if Singleton_model.__model != None:
          raise Exception("This class is a singleton!")
       else:
-         Singleton_model.__model = keras.models.load_model('../Gesture recognition_Sign Language_mobilenet_v6')
+         Singleton_model.__model = keras.models.load_model('../Gesture recognition_Sign Language_mobilenet_')
          Singleton_model.__detector= handDetector(min_detection_confidence, min_tracking_confidence)

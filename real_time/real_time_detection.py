@@ -6,7 +6,7 @@ from EDA.HandDetector import handDetector
 import tensorflow as tf
 
 #loading the gesture model
-model = load_model('../Gesture recognition_Sign Language_mobilenet_v3')
+model = load_model('../Gesture recognition_Sign Language_mobilenet_')
 
 #creating an object of hand detector class
 detection = handDetector(.8, .8)
