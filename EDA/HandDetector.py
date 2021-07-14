@@ -65,8 +65,8 @@ def main():
         sucess, img =cap.read()
         img, x_min, x_max, y_min, y_max = detector.cropHand(img, draw=True)
         if x_min and  x_max and y_min and y_max:
-            topLeft = (x_min - 25, y_min - 25)
-            bottomRight = (x_max + 25,y_max + 25)
+            topLeft = (x_min - 35, y_min - 35)
+            bottomRight = (x_max + 35,y_max + 35)
             cv2.rectangle(img, topLeft, bottomRight,(255,255,0),2)
         ctime = time.time()
         fps = 1 / (ctime-ptime)
