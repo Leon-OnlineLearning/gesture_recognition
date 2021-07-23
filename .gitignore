@@ -2,3 +2,6 @@ EDA/__pycache__
 exam/__pycache__
 real_time/__pycache__
 exam/hh.py
+exam/recordings/*.mkv
+real_time/*.mp4
+real_time/*:Zone.Identifier
