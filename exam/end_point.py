@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory
 import numpy as np
 from exam.gesture_recognition import gesture_recognition
+from exam.gesture_recognition_v2 import gesture_recognition_V2
 
 UPLOAD_FOLDER = './recordings'
 
@@ -18,7 +19,8 @@ def receving_chunks_during_exam(user_id):
         filename = secure_filename(file.filename)
         datapath=os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(datapath)
-        gesture = gesture_recognition(datapath)
+        # gesture = gesture_recognition(datapath)
+        gesture = gesture_recognition_V2(datapath)
         # os.remove(datapath)
         return jsonify({'gesture':gesture})
 
