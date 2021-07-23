@@ -5,7 +5,7 @@ import time
 
 
 import os
-
+#v1, v2
 class handDetector():
     def __init__ (self, min_detection_confidence= .9, min_tracking_confidence=.9):
         self.min_detection_confidence = min_detection_confidence
