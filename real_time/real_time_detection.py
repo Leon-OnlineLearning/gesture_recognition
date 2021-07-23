@@ -9,7 +9,7 @@ import tensorflow as tf
 model = load_model('../Gesture recognition_Sign Language_mobilenet_')
 
 #creating an object of hand detector class
-detection = handDetector(.8, .8)
+detection = handDetector(.9, .9)
 
 cap = cv2.VideoCapture(0)
 
