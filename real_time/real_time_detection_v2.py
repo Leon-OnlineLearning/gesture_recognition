@@ -5,7 +5,7 @@ import pickle
 
 #loading the gesture model
 
-data_path = '../finalized_model.sav'
+data_path = './finalized_model.sav'
  
 # some time later...
  
@@ -16,10 +16,13 @@ knn_model = pickle.load(open(data_path, 'rb'))
 pose_detection = handPose(.8, .8)
 detector = handDetector(.8,.8)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('real_time/3_1.mp4')
 
 while True:
     suc, frame = cap.read()
+    if not suc:
+        break
+
     img, x_min, x_max, y_min, y_max = detector.cropHand(frame)
     topLeft = (x_min - 35, y_min - 35)
     bottomRight = (x_max + 35,y_max + 35)
@@ -37,15 +40,16 @@ while True:
         if not df.empty:
         #preprocessing_the_image of the hand
             prediction = knn_model.predict(df)
-            # print(prediction)
+            print(prediction)
 
         
             cv2.rectangle(frame, topLeft, bottomRight,(255,255,0),2)
             cv2.putText(frame, str(prediction[0]), topLeft,cv2.FONT_HERSHEY_COMPLEX_SMALL, 
                     3,(255, 0, 255), 5)
-    cv2.imshow("frame", frame)
-    if cv2.waitKey(10)==ord('q'):
-        break
+    # cv2.imshow("frame", frame)
+    
+    # if cv2.waitKey(10)==ord('q'):
+        # break
     
 cv2.destroyAllWindows()
 cap.release()

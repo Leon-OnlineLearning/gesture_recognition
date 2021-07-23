@@ -28,20 +28,20 @@ def gesture_recognition_V2(chunk_path):
             # print(read)
             #detection any hand in the frame
             hand = preprocessing(frame)
-            if hand != 0:
+            if (type(hand) != int):
                 img, df = pose_detection.cropHand(hand, draw=True)
                 # print(df) 
                 if not df.empty:
                 #preprocessing_the_image of the hand
                     prediction = model.predict(df)
-                    predicted_classes.append(prediction[0])
+                    predicted_classes.append(prediction[0].item())
             
 
 
 
 def preprocessing(frame):
     # models = Singleton_model()
-    _, detection = Singleton_model.getInstance()
+    _, detection,_ = Singleton_model.getInstance()
     img, x_min, x_max, y_min, y_max = detection.cropHand(frame)
     topLeft = (x_min - 35, y_min - 35)
     bottomRight = (x_max + 35,y_max + 35)

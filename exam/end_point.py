@@ -7,7 +7,7 @@ import numpy as np
 from exam.gesture_recognition import gesture_recognition
 from exam.gesture_recognition_v2 import gesture_recognition_V2
 
-UPLOAD_FOLDER = './recordings'
+UPLOAD_FOLDER = './exam/recordings'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -21,11 +21,12 @@ def receving_chunks_during_exam(user_id):
         file.save(datapath)
         # gesture = gesture_recognition(datapath)
         gesture = gesture_recognition_V2(datapath)
+        print(gesture) 
         # os.remove(datapath)
         return jsonify({'gesture':gesture})
 
-    #if there is no file or bad file recived return 400
+    #if there is no file or bad file received return 400
     return "Inavalid video type", status.HTTP_400_BAD_REQUEST
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=50000, debug=True)
+    app.run(host='0.0.0.0',port=5003, debug=True, use_reloader=True)

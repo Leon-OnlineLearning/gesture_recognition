@@ -19,6 +19,6 @@ class Singleton_model:
       if Singleton_model.__model != None:
          raise Exception("This class is a singleton!")
       else:
-         Singleton_model.__model = pickle.load(open('../finalized_model.sav', 'rb'))
+         Singleton_model.__model = pickle.load(open('./finalized_model.sav', 'rb'))
          Singleton_model.__detector = handDetector(min_detection_confidence, min_tracking_confidence)
          Singleton_model.__pose_detection = handPose(min_detection_confidence, min_tracking_confidence)

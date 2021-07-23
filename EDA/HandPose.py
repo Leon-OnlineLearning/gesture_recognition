@@ -20,6 +20,10 @@ class handPose():
         self.bgModel = cv2.createBackgroundSubtractorMOG2(history= 0, varThreshold = 100, detectShadows=False)
 
     def cropHand(self, img, draw=False):
+        if img is None:
+            print('no image')
+            return None
+
         img =  cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = self.hands.process(img)
         img =  cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
