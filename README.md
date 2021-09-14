@@ -1,7 +1,7 @@
 # gesture_recognition
 ### Recognize the gesture during the exam to check the liveness  of the student
 
-First you should read the steps of [implemintg this project here ch10_page_124](https://drive.google.com/file/d/1bn82VK5El_tPsIMk1pOr9S29IsVutB6w/view?usp=sharing)
+First you should read the steps of [implementing this project here ch10_page_124](https://drive.google.com/file/d/1bn82VK5El_tPsIMk1pOr9S29IsVutB6w/view?usp=sharing)
 
 
 And you can also view the final presentaion slides[here pages 27_32](https://docs.google.com/presentation/d/1UPAGrZAhR0N30t_DG5IGQrRELZVGk17OGM-Onb9_TXw/edit?usp=sharing) 
