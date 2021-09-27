@@ -16,3 +16,7 @@ And you can also view the final presentaion slides[here pages 27_32](https://doc
 3. then you can run the following command to enjoy of running v2 of the project that uses knn model instead of mobilenet model that i have used in v1
 
   `pyhon3 -m real_time.real_time_detection_v2`
+
+
+
+![model pipeline](https://github.com/Leon-OnlineLearning/gesture_recognition/blob/main/gesture_model.jpg/?raw=true)
